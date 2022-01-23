@@ -1,0 +1,8 @@
+*.stats
+bot
+*.lprof
+*.jpeg
+*.dat
+core
+data
+td_28
