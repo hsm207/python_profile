@@ -1,0 +1,9 @@
+###
+## talking to the bot using the rest channel
+POST http://localhost:5005/webhooks/rest/webhook
+content-type: application/json
+
+{
+    "sender": "test_user",
+    "message": "hi"
+}

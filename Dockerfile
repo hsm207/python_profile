@@ -10,6 +10,7 @@ RUN apt install -y git \
 RUN pip install black \
     line_profiler \
     memory_profiler \
+    pandas \
     py-spy \
     psutil \
     snakeviz 
