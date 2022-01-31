@@ -24,11 +24,23 @@ run:
 # for profilling a running process
 run-rasa-server:
 	cd bot && \
-	rasa run --enable-api
+	rasa run --enable-api -vv
+
+run-action-server:
+	cd bot && \
+	rasa run actions -vv
 
 get-rasa-server-pid:
-	ps -A | grep rasa  | tr -s " " | cut -d " " -f 2
+	ps -AF  | \
+		grep python | \
+		grep rasa | \
+		grep -v 'actions' | \
+		tr -s " " | \
+		cut -d " " -f 2
 
 PID_RASA=123
 spy-rasa-server:
 	py-spy top --pid $$PID_RASA
+
+graph-rasa-server:
+	py-spy record -o profile.svg --pid $$PID_RASA
